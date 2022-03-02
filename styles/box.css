@@ -1,0 +1,181 @@
+@keyframes hi {
+	from {
+		display: none;
+		transform: translateY(-31.2rem) rotate(0.75turn);
+	}
+	to {
+		display: block;
+	}
+}
+
+@keyframes roam {
+	0% {
+		transform: translate(0px, 0px);
+	}
+
+	25% {
+		transform: translateX(12px);
+	}
+	50% {
+		transform: translateY(12px);
+	}
+	75% {
+		transform: translate(12px, 12px);
+	}
+
+	100% {
+		transform: translate(0px, 0px);
+	}
+}
+
+.box {
+	display: flex;
+	flex-flow: row;
+	background-color: #454545;
+	width: 12rem;
+	height: 2rem;
+	margin-bottom: 10px;
+	align-items: center;
+	justify-content: space-between;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	transition: all 1s ease-in-out;
+}
+.handle {
+	color: grey;
+	padding-right: 3px;
+	padding-left: 3px;
+	border: 1px white ridge;
+	cursor: grab;
+	font-size: 2rem;
+}
+
+.close-handle {
+	cursor: pointer;
+}
+
+.handle:active {
+	cursor: grabbing;
+}
+
+.handle > i {
+	display: block;
+}
+
+@keyframes shake {
+	0% {
+		transform: translate(1px, 1px) rotate(0deg);
+	}
+	10% {
+		transform: translate(-1px, -2px) rotate(-1deg);
+	}
+	20% {
+		transform: translate(-3px, 0px) rotate(1deg);
+	}
+	30% {
+		transform: translate(3px, 2px) rotate(0deg);
+	}
+	40% {
+		transform: translate(1px, -1px) rotate(1deg);
+	}
+	50% {
+		transform: translate(-1px, 2px) rotate(-1deg);
+	}
+	60% {
+		transform: translate(-3px, 1px) rotate(0deg);
+	}
+	70% {
+		transform: translate(3px, 1px) rotate(-1deg);
+	}
+	80% {
+		transform: translate(-1px, -1px) rotate(1deg);
+	}
+	90% {
+		transform: translate(1px, 2px) rotate(0deg);
+	}
+	100% {
+		transform: translate(1px, -2px) rotate(-1deg);
+	}
+}
+
+.shake {
+	animation: shake 0.69s;
+	animation-iteration-count: infinite;
+}
+
+.selection-slider {
+	background-color: "red";
+	border: 2px slateblue groove;
+	width: 6%;
+	height: 100%;
+	cursor: pointer;
+	transition: background-color 1s ease-in-out;
+}
+.selection-slider:hover {
+	border-style: ridge;
+}
+.selection-slider:active {
+	border-style: inset;
+}
+
+.selected-slider {
+	background-color: #fc00b0;
+}
+
+.bye {
+	animation-name: hi;
+	animation-duration: 1.3s;
+	animation-fill-mode: forwards;
+	animation-direction: reverse;
+}
+
+.roam {
+	animation: roam 1.3s;
+	animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes shadow-pop-tr {
+	0% {
+		-webkit-box-shadow: 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e,
+			0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e;
+		box-shadow: 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e,
+			0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e;
+		-webkit-transform: translateX(0) translateY(0);
+		transform: translateX(0) translateY(0);
+	}
+	100% {
+		-webkit-box-shadow: 1px -1px #3e3e3e, 2px -2px #3e3e3e, 3px -3px #3e3e3e,
+			4px -4px #3e3e3e, 5px -5px #3e3e3e, 6px -6px #3e3e3e,
+			7px -7px #3e3e3e, 8px -8px #3e3e3e;
+		box-shadow: 1px -1px #3e3e3e, 2px -2px #3e3e3e, 3px -3px #3e3e3e,
+			4px -4px #3e3e3e, 5px -5px #3e3e3e, 6px -6px #3e3e3e,
+			7px -7px #3e3e3e, 8px -8px #3e3e3e;
+		-webkit-transform: translateX(-8px) translateY(8px);
+		transform: translateX(-8px) translateY(8px);
+	}
+}
+@keyframes shadow-pop-tr {
+	0% {
+		-webkit-box-shadow: 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e,
+			0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e;
+		box-shadow: 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e,
+			0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e;
+		-webkit-transform: translateX(0) translateY(0);
+		transform: translateX(0) translateY(0);
+	}
+	100% {
+		-webkit-box-shadow: 1px -1px #3e3e3e, 2px -2px #3e3e3e, 3px -3px #3e3e3e,
+			4px -4px #3e3e3e, 5px -5px #3e3e3e, 6px -6px #3e3e3e,
+			7px -7px #3e3e3e, 8px -8px #3e3e3e;
+		box-shadow: 1px -1px #3e3e3e, 2px -2px #3e3e3e, 3px -3px #3e3e3e,
+			4px -4px #3e3e3e, 5px -5px #3e3e3e, 6px -6px #3e3e3e,
+			7px -7px #3e3e3e, 8px -8px #3e3e3e;
+		-webkit-transform: translateX(-8px) translateY(8px);
+		transform: translateX(-8px) translateY(8px);
+	}
+}
+
+.box:hover {
+	-webkit-animation: shadow-pop-tr 0.3s cubic-bezier(0.47, 0, 0.745, 0.715)
+		both;
+	animation: shadow-pop-tr 0.3s cubic-bezier(0.47, 0, 0.745, 0.715) both;
+}

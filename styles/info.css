@@ -1,0 +1,4 @@
+footer > article:last-child {
+	opacity: 0;
+	display: none;
+}
