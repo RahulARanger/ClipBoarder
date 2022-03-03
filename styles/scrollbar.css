@@ -1,0 +1,22 @@
+* {
+	scrollbar-width: auto;
+	scrollbar-color: #00ccff transparent;
+}
+
+*::-webkit-scrollbar {
+	width: 3px;
+}
+
+*::-webkit-scrollbar:hover {
+	width: 6px;
+}
+
+*::-webkit-scrollbar-track {
+	background: #ffffff;
+}
+
+*::-webkit-scrollbar-thumb {
+	background-color: #00ccff;
+	border-radius: 0px;
+	border: 0px inset #ff0000;
+}

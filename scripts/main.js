@@ -1,6 +1,5 @@
 const settings = {
 	mode: false,
-	settings: false,
 	info: false,
 
 	personal: {
@@ -13,15 +12,23 @@ const settings = {
 const boxStack = [];
 
 const main = document.querySelector("main");
-
+const settings_model = document.querySelector("footer > article:first-child");
+const info_model = document.querySelector("footer > article:last-child");
 const play = document.querySelector("header > button:first-of-type");
 const paste = document.querySelector("header > button:nth-of-type(2)");
 const select = document.querySelector("header > button:nth-of-type(3)");
-const trash = document.querySelector("header > button:nth-of-type(4)");
-const sliders = document.querySelector("header > button:nth-of-type(5)");
+const info = document.querySelector("header > button:nth-of-type(4)");
+const trash = document.querySelector("header > button:nth-of-type(5)");
+const sliders = document.querySelector("header > button:nth-of-type(6)");
 const github = document.querySelector("header > button:last-of-type");
 
 document.onpaste = addPasted;
+const showInfo = (toggle) =>
+	toggle
+		? info_model.classList.toggle("show")
+		: info_model.classList.add("show");
+
+const toggleSettings = () => settings_model.classList.toggle("show");
 
 paste.addEventListener("click", addPasted);
 play.addEventListener("click", () => changeModeForBoxes());
@@ -30,13 +37,15 @@ sliders.addEventListener("click", toggleSettings);
 select.addEventListener("click", () =>
 	settings.getBoxes().forEach((box) => selectBox(box, true))
 );
+info.addEventListener("click", showInfo);
 
 document
 	.querySelector("footer > article:first-child  button")
 	.addEventListener("click", toggleSettings);
+
 document
-	.querySelector("main ~ article")
-	.addEventListener("click", toggleSettings);
+	.querySelector("footer > article:last-child button")
+	.addEventListener("click", showInfo);
 
 const addNode = (title, content) => {
 	// <section class="box">
@@ -70,6 +79,11 @@ const addNode = (title, content) => {
 	main.append(box);
 
 	selection_slider.addEventListener("click", selectBox);
+	content_.addEventListener("click", () => {
+		showInfo(false);
+		// setDetails();
+	});
+
 	box.style.opacity = 0;
 	setTimeout(() => (box.style.opacity = 1), 10);
 };
@@ -88,42 +102,6 @@ function changeModeForBoxes(mode) {
 		settings.mode ? "fa-solid fa-minus" : "fa-solid fa-grip-vertical";
 		box.classList.toggle("float");
 	});
-}
-
-function toggleBox(model, mode, duration = 1500, start = 0, final = 1) {
-	model.style.display = "block";
-	model.animate(
-		[
-			// keyframes
-			{
-				opacity: final,
-			},
-			{
-				opacity: start,
-			},
-		],
-		{
-			// timing options
-			duration: duration,
-			fillMode: "backwards",
-			easing: "ease-in-out",
-			fill: "forwards",
-			direction: mode ? "reverse" : "normal",
-		}
-	).onfinish = () => {
-		model.style.display = mode ? "block" : "none";
-	};
-}
-
-function toggleSettings() {
-	settings.settings = !settings.settings;
-	const overlay = document.querySelector("main ~ article");
-	toggleBox(overlay, settings.settings, 2000, 0, 0.45);
-	toggleBox(
-		document.querySelector("footer > article:first-child"),
-		settings.settings,
-		1500
-	);
 }
 
 function selectBox(event, isSource = false) {
