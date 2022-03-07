@@ -1,51 +1,45 @@
 const settings = {
-	mode: false,
+	mode: true,
 	info: false,
-
-	personal: {
-		animate: false,
-	},
+	selected: null,
 
 	getBoxes: () => document.querySelectorAll(".box"),
 };
 
 const boxStack = [];
 
-const main = document.querySelector("main");
-const settings_model = document.querySelector("footer > article:first-child");
-const info_model = document.querySelector("footer > article:last-child");
-const play = document.querySelector("header > button:first-of-type");
-const paste = document.querySelector("header > button:nth-of-type(2)");
-const select = document.querySelector("header > button:nth-of-type(3)");
-const info = document.querySelector("header > button:nth-of-type(4)");
-const trash = document.querySelector("header > button:nth-of-type(5)");
-const sliders = document.querySelector("header > button:nth-of-type(6)");
-const github = document.querySelector("header > button:last-of-type");
+const mainS = document.querySelectorAll("main");
+const main = mainS[0];
+
+const tab_buttons = document.querySelectorAll("#tabs > button");
+const [paste, select, delete_selected, source] =
+	document.querySelectorAll("#menu > button");
+
+settings.selected = 0;
+
+tab_buttons.forEach((button, index) =>
+	button.addEventListener("click", (e) => tabFunc(e, index))
+);
+
+delete_selected.addEventListener("click", deleteSelected);
+
+function tabFunc(_, index) {
+	if (index === settings.selected) {
+		return tabFunc(_, 0);
+	}
+
+	const selected = tab_buttons[settings.selected];
+
+	selected.classList.toggle("selected");
+	tab_buttons[index].classList.toggle("selected");
+
+	mainS[index].classList.toggle("main-hide");
+	mainS[settings.selected].classList.toggle("main-hide");
+
+	settings.selected = index;
+}
 
 document.onpaste = addPasted;
-const showInfo = (toggle) =>
-	toggle
-		? info_model.classList.toggle("show")
-		: info_model.classList.add("show");
-
-const toggleSettings = () => settings_model.classList.toggle("show");
-
-paste.addEventListener("click", addPasted);
-play.addEventListener("click", () => changeModeForBoxes());
-trash.addEventListener("click", deleteSelected);
-sliders.addEventListener("click", toggleSettings);
-select.addEventListener("click", () =>
-	settings.getBoxes().forEach((box) => selectBox(box, true))
-);
-info.addEventListener("click", showInfo);
-
-document
-	.querySelector("footer > article:first-child  button")
-	.addEventListener("click", toggleSettings);
-
-document
-	.querySelector("footer > article:last-child button")
-	.addEventListener("click", showInfo);
 
 const addNode = (title, content) => {
 	// <section class="box">
@@ -89,19 +83,7 @@ const addNode = (title, content) => {
 };
 
 function addPasted() {
-	addNode("test1", "internal content");
-}
-
-function changeModeForBoxes(mode) {
-	settings.mode = !settings.mode;
-
-	settings.getBoxes().forEach((box) => {
-		const handle = box.querySelector(".handle");
-		const icon = handle.querySelector("i");
-
-		settings.mode ? "fa-solid fa-minus" : "fa-solid fa-grip-vertical";
-		box.classList.toggle("float");
-	});
+	settings.selected === 0 ? addNode("test1", "internal content") : "";
 }
 
 function selectBox(event, isSource = false) {

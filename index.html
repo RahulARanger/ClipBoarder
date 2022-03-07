@@ -16,19 +16,47 @@
 			<header>
 				<article>
 					<span>ClipBoarder</span>
-					<sup style="font-size: 0.69rem">v0.0.1</sup>
+					<sup style="font-size: 0.69rem">v0.1.0</sup>
 				</article>
-				<button><i class="fa-solid fa-play"></i></button>
-				<button><i class="fa-solid fa-paste"></i></button>
-				<button><i class="fa-solid fa-hand-pointer"></i></button>
-				<button><i class="fa-solid fa-circle-info"></i></button>
-				<button><i class="fa-solid fa-trash"></i></button>
-				<button>
-					<!-- add fas in case if we can't icon we need -->
-					<!--https://stackoverflow.com/a/50132546/12318454-->
-					<i class="fas fa-regular fa-sliders"></i>
-				</button>
-				<button><i class="fa-brands fa-github-alt"></i></button>
+
+				<section id="menu">
+					<button title="Paste" class="button">
+						<i class="fa-solid fa-paste"></i>
+					</button>
+					<button title="Toggle select" class="button">
+						<i class="fa-solid fa-hand-pointer"></i>
+					</button>
+					<button title="Delete" class="button">
+						<i class="fa-solid fa-trash"></i>
+					</button>
+					<button title="Source" class="button">
+						<i class="fa-brands fa-github-alt"></i>
+					</button>
+				</section>
+
+				<section></section>
+
+				<section id="playing" class="hide">
+					<button>
+						<i class="fas fa-regular fa-sliders">Playing</i>
+					</button>
+				</section>
+
+				<section id="tabs">
+					<button class="selected">
+						<i class="fa-solid fa-house"></i>
+					</button>
+					<button>
+						<i class="fa-solid fa-play"></i>
+					</button>
+					<button><i class="fa-solid fa-circle-info"></i></button>
+					<button>
+						<!-- add fas in case if we can't icon we need
+						https://stackoverflow.com/a/50132546/12318454 -->
+						<i class="fas fa-regular fa-sliders"></i>
+					</button>
+				</section>
+
 				<aside>
 					<label for="filter-search">Search:&nbsp;&nbsp; </label>
 					<span
@@ -40,35 +68,14 @@
 					<datalist id="hint"> </datalist>
 				</aside>
 			</header>
+			<!---->
 
-			<main></main>
+			<main id="home"></main>
+			<main id="play" class="main-hide"></main>
+			<main id="info" class="main-hide"></main>
+			<main id="settings" class="main-hide"></main>
+
 			<!-- Board of elements -->
-
-			<footer>
-				<article>
-					<header>
-						<span>Settings</span>
-						<button>
-							<i class="fa-solid fa-circle-xmark"></i>
-						</button>
-					</header>
-
-					<section></section>
-					<section></section>
-				</article>
-				<article>
-					<header>
-						<i class="fa-solid fa-grip-vertical"></i>
-						<input type="text" value="value not given" />
-						<button>
-							<i class="fa-solid fa-circle-xmark"></i>
-						</button>
-					</header>
-					<section>
-						<label>Preview:</label>
-					</section>
-				</article>
-			</footer>
 		</div>
 		<script src="./scripts/main.js"></script>
 	</body>

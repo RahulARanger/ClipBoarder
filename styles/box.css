@@ -1,33 +1,3 @@
-@keyframes hi {
-	from {
-		display: none;
-		transform: translateY(-31.2rem) rotate(0.75turn);
-	}
-	to {
-		display: block;
-	}
-}
-
-@keyframes roam {
-	0% {
-		transform: translate(0px, 0px);
-	}
-
-	25% {
-		transform: translateX(12px);
-	}
-	50% {
-		transform: translateY(12px);
-	}
-	75% {
-		transform: translate(12px, 12px);
-	}
-
-	100% {
-		transform: translate(0px, 0px);
-	}
-}
-
 .box {
 	display: flex;
 	flex-flow: row;
@@ -37,20 +7,29 @@
 	margin-bottom: 10px;
 	align-items: center;
 	justify-content: space-between;
-	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+		rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+		rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 	transition: all 0.4s ease-in-out;
+
+	cursor: pointer;
 }
+
+.box:hover {
+	transform: scale3d(1.0069, 1.0069, 1) translate(0px, -3px);
+}
+
 .handle {
 	color: grey;
 	padding-right: 3px;
 	padding-left: 3px;
-	border: 1px white ridge;
+	box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+		rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
+		rgba(0, 0, 0, 0.09) 0px 32px 16px;
+
+	border-right: white 0.69px groove;
 	cursor: grab;
 	font-size: 2rem;
-}
-
-.close-handle {
-	cursor: pointer;
 }
 
 .handle:active {
@@ -61,64 +40,30 @@
 	display: block;
 }
 
-@keyframes shake {
-	0% {
-		transform: translate(1px, 1px) rotate(0deg);
-	}
-	10% {
-		transform: translate(-1px, -2px) rotate(-1deg);
-	}
-	20% {
-		transform: translate(-3px, 0px) rotate(1deg);
-	}
-	30% {
-		transform: translate(3px, 2px) rotate(0deg);
-	}
-	40% {
-		transform: translate(1px, -1px) rotate(1deg);
-	}
-	50% {
-		transform: translate(-1px, 2px) rotate(-1deg);
-	}
-	60% {
-		transform: translate(-3px, 1px) rotate(0deg);
-	}
-	70% {
-		transform: translate(3px, 1px) rotate(-1deg);
-	}
-	80% {
-		transform: translate(-1px, -1px) rotate(1deg);
-	}
-	90% {
-		transform: translate(1px, 2px) rotate(0deg);
-	}
-	100% {
-		transform: translate(1px, -2px) rotate(-1deg);
-	}
-}
-
 .shake {
 	animation: shake 0.69s;
 	animation-iteration-count: infinite;
 }
 
 .selection-slider {
-	background-color: "red";
-	border: 2px slateblue groove;
+	box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
+		rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
+		rgba(0, 0, 0, 0.07) 0px 16px 16px;
 	width: 6%;
+	border: 2px rgba(3, 102, 214, 0.3) groove;
 	height: 100%;
 	cursor: pointer;
 	transition: background-color 1s ease-in-out;
 }
 .selection-slider:hover {
-	border-style: ridge;
+	border: 2px rgba(3, 102, 214, 0.69) solid;
 }
 .selection-slider:active {
 	border-style: inset;
 }
 
 .selected-slider {
-	background-color: #fc00b0;
+	background-color: palevioletred;
 }
 
 .bye {
@@ -152,13 +97,6 @@
 		-webkit-transform: translateX(-8px) translateY(8px);
 		transform: translateX(-8px) translateY(8px);
 	}
-}
-
-.box:hover {
-	box-shadow: 1px -1px #3e3e3e, 2px -2px #3e3e3e, 3px -3px #3e3e3e,
-		4px -4px #3e3e3e, 5px -5px #3e3e3e, 6px -6px #3e3e3e, 7px -7px #3e3e3e,
-		8px -8px #3e3e3e;
-	transform: translateX(-8px) translateY(8px);
 }
 
 .box > div.content {

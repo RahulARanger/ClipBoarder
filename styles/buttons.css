@@ -1,0 +1,49 @@
+button {
+	outline: none;
+
+	border-style: none;
+	color: rgba(60, 64, 67, 0.99);
+
+	transition: all 0.2s ease-in-out;
+	background-image: linear-gradient(
+		45deg,
+		hsl(14deg 93% 62%) 1%,
+		hsl(17deg 85% 65%) 43%,
+		hsl(19deg 74% 67%) 50%,
+		hsl(24deg 60% 69%) 51%,
+		hsl(32deg 42% 70%) 51%,
+		hsl(61deg 20% 71%) 49%,
+		hsl(139deg 28% 76%) 49%,
+		hsl(166deg 56% 73%) 50%,
+		hsl(175deg 80% 69%) 57%,
+		hsl(179deg 100% 50%) 99%
+	);
+
+	cursor: pointer;
+}
+
+button {
+	box-shadow: -1px 10px 5px 0px rgba(0, 0, 0, 0.75);
+	-webkit-box-shadow: -1px 10px 5px 0px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: -1px 10px 5px 0px rgba(0, 0, 0, 0.75);
+}
+button:active {
+	box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+		rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+button:hover {
+	color: rgba(34, 34, 23);
+	transform: scale3d(0.8, 0.8, 0.8);
+}
+
+.selected:hover {
+	transform: scale3d(1.2, 1.2, 1.2);
+}
+.button:hover {
+	animation: jello-vertical 1s both;
+}
+
+.selected {
+	transform: scale3d(1.5, 1.5, 1.5);
+}

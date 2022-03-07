@@ -1,74 +1,18 @@
-footer > article {
-	position: absolute;
-	top: 22%;
-	width: 45%;
-	height: 45%;
+@import url("./header.css");
 
-	left: 27.5%;
-	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-		rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
-		rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-
-	z-index: 5;
-}
-
-article > header {
-	display: flex;
-	justify-content: flex-start;
-}
-
-article > header > span,
-article > header > input {
-	flex-grow: 1;
-	text-align: center;
-}
-
-footer > article {
+#settings {
 	background-image: linear-gradient(
-		315deg,
-		hsl(24deg 100% 38%) 1%,
-		hsl(24deg 100% 39%) 36%,
-		hsl(24deg 100% 41%) 45%,
-		hsl(24deg 100% 42%) 49%,
-		hsl(24deg 100% 43%) 51%,
-		hsl(24deg 100% 44%) 52%,
-		hsl(25deg 100% 45%) 52%,
-		hsl(25deg 100% 46%) 52%,
-		hsl(24deg 98% 44%) 52%,
-		hsl(22deg 96% 40%) 51%,
-		hsl(20deg 96% 35%) 51%,
-		hsl(18deg 96% 30%) 51%,
-		hsl(18deg 95% 33%) 53%,
-		hsl(19deg 95% 38%) 56%,
-		hsl(20deg 95% 44%) 62%,
-		hsl(21deg 96% 49%) 87%
+		90deg,
+		hsl(24deg 100% 59%) 1%,
+		hsl(12deg 100% 63%) 42%,
+		hsl(355deg 100% 65%) 49%,
+		hsl(338deg 100% 58%) 51%,
+		hsl(324deg 100% 50%) 51%,
+		hsl(316deg 100% 50%) 50%,
+		hsl(287deg 84% 67%) 49%,
+		hsl(244deg 100% 78%) 49%,
+		hsl(207deg 100% 63%) 51%,
+		hsl(195deg 100% 50%) 58%,
+		hsl(191deg 100% 50%) 99%
 	);
-}
-
-footer > article {
-	transform: scale(0);
-	transition: all 1s ease-in-out;
-	filter: blur(6px);
-}
-
-footer > article.show {
-	transform: scale(1);
-	filter: blur(0px);
-}
-
-footer > article > header:hover {
-	cursor: move;
-}
-
-footer > article > header {
-	align-items: center;
-}
-
-footer > article > header > i {
-	padding: 6px;
-	transition: all 1s;
-}
-
-footer > article > header > i:hover {
-	background-color: grey;
 }
