@@ -1,55 +1,45 @@
-@import url("./settings.css");
-@import url("./box.css");
-@import url("./scrollbar.css");
-
+@import url("./header.css");
 body {
 	margin: 0px;
 	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.body {
+.body,
+.overlay-sheet {
 	position: absolute;
 	width: 100%;
 	height: 100%;
 	display: flex;
 	flex-flow: column;
+	transition: all 1.2s ease-in-out;
+}
+
+.body.blur {
+	filter: blur(2.9px);
 }
 
 main {
 	display: flex;
-	position: relative;
-
-	justify-content: space-around;
-	flex-flow: row wrap;
-	align-content: flex-start;
-
-	flex-grow: 1;
-
-	padding-top: 2%;
-
 	transition: all 1s ease-in-out;
 }
 
-.main-hide {
-	transform: scale3d(0, 0, 0);
+main {
+	flex-grow: 1;
+	background-image: linear-gradient(
+		270deg,
+		hsl(201deg 100% 20%) 13%,
+		hsl(215deg 57% 31%) 43%,
+		hsl(238deg 32% 41%) 49%,
+		hsl(271deg 34% 43%) 50%,
+		hsl(303deg 39% 43%) 50%,
+		hsl(324deg 54% 48%) 50%,
+		hsl(336deg 71% 53%) 50%,
+		hsl(348deg 89% 58%) 51%,
+		hsl(4deg 100% 62%) 57%,
+		hsl(24deg 100% 50%) 87%
+	);
 }
 
-.main-selected {
-	transform: scale3d(1, 1, 1);
-}
-
-button.inset {
-	border-style: 1px white inset;
-}
-
-main ~ article {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(169, 169, 169, 0.5);
-	z-index: 4;
-	/* display: none; */
-	transition: opacity 1s ease-in-out;
+.overlay > p {
+	background-color: hsl(215deg 57% 31%);
 }

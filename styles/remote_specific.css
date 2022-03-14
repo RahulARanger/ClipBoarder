@@ -1,0 +1,47 @@
+.body > main {
+	display: flex;
+	flex-flow: column !important;
+	justify-content: stretch;
+	align-items: center;
+}
+
+.body > section {
+	display: flex;
+	flex-flow: row;
+	flex-grow: 2;
+}
+
+.body > section > * {
+	flex-grow: 1;
+}
+
+header,
+footer {
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+		rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+		rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+button {
+	transition: all 0.39s ease-in-out;
+	font-size: 600%;
+}
+
+button:hover {
+	transform: scale3d(0.99, 0.99, 0.99);
+	color: lightgreen;
+}
+footer {
+	justify-content: space-between;
+}
+footer > span {
+	flex-grow: 1;
+}
+
+header {
+	align-items: center;
+	justify-content: center;
+}
+footer {
+	/* align-items: center; */
+	justify-content: space-between;
+}

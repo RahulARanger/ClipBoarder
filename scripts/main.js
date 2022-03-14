@@ -1,90 +1,95 @@
+// const peer = new Peer();
+
+// console.log(peer);
+
+// peer.on("connection", function (conn) {
+// 	console.log(conn);
+// });
+
+// (function(){
+// 	const
+// })
+
+// (function () {
+// 	function generateID() {}
+
+// 	const params = Object.fromEntries(
+// 		window.location.search
+// 			.substring(1)
+// 			.split("&")
+// 			.map((value) => value.split("="))
+// 	);
+
+// 	console.log(params);
+// 	generateID();
+// })();
+
+$(".notify").click(function (e) {
+	let target = e.target;
+
+	if (target.tagName === "I") target = target.parentElement;
+
+	const box = $(
+		`<span class='notify' style='display:none;'>${target.dataset.tip}</span>`
+	);
+
+	$("body").append(box);
+	box.fadeIn();
+	setTimeout(() => box.fadeOut(), 1000);
+});
+
+$(window).on("beforeunload", function () {
+	return "Are you sure you want to leave?";
+});
+
+function toggleOverlay(e, confirm_close = true) {
+	const sheet = $("article.overlay-sheet");
+	if (
+		!e.target.classList.contains(sheet.attr("class")) ||
+		(sheet.css("display") == "none" && confirm_close)
+	) {
+		return;
+	}
+
+	$(".body").css(
+		"filter",
+		`blur(${sheet.css("display") === "none" ? 2.9 : 0}px)`
+	);
+	sheet.fadeToggle();
+	$(".overlay").fadeToggle();
+}
+
+// $("button[title='QR Code']").click(toggleOverlay);
+$(".overlay > header > button").click(toggleOverlay);
+$(".overlay-sheet").click(toggleOverlay);
+
 const settings = {
 	mode: true,
 	info: false,
-	selected: null,
+	selected: document.querySelector("#tabs>button"),
 
 	getBoxes: () => document.querySelectorAll(".box"),
 };
 
-const boxStack = [];
-
-const mainS = document.querySelectorAll("main");
-const main = mainS[0];
-
-const tab_buttons = document.querySelectorAll("#tabs > button");
-const [paste, select, delete_selected, source] =
-	document.querySelectorAll("#menu > button");
-
-settings.selected = 0;
-
-tab_buttons.forEach((button, index) =>
-	button.addEventListener("click", (e) => tabFunc(e, index))
-);
-
-delete_selected.addEventListener("click", deleteSelected);
-
-function tabFunc(_, index) {
-	if (index === settings.selected) {
-		return tabFunc(_, 0);
-	}
-
-	const selected = tab_buttons[settings.selected];
-
-	selected.classList.toggle("selected");
-	tab_buttons[index].classList.toggle("selected");
-
-	mainS[index].classList.toggle("main-hide");
-	mainS[settings.selected].classList.toggle("main-hide");
-
-	settings.selected = index;
-}
-
-document.onpaste = addPasted;
-
-const addNode = (title, content) => {
+$(window).on("paste", function () {
 	// <section class="box">
 	// 	<div class="handle">
 	// 		<i class="fa-solid fa-burger"></i>
 	// 	</div>
-	// 	<div class="type"></div>
 	// 	<div class="content"></div>
 	// 	<div class="selection-slider"></div>
 	// </section>;
 
-	const box = document.createElement("section");
-	box.classList.add("box");
+	const box = $("<section class='box'></section>");
+	const handle = $("<div class='handle'></div>");
+	const content = $("<div class='content'></div>");
+	box.append(handle, content);
 
-	const handle = document.createElement("div");
-	handle.classList.add("handle");
+	handle.append(`<i class="fa-solid fa-grip-lines-vertical"></i>`);
+	content.click(toggleOverlay);
 
-	handle.innerHTML = `<i class="fa-solid fa-grip-lines-vertical"></i>`;
-
-	const type = document.createElement("div");
-	type.className = "type";
-
-	const content_ = document.createElement("div");
-	content_.className = "content";
-	content_.innerHTML = Math.random(0) * 100;
-
-	const selection_slider = document.createElement("div");
-	selection_slider.className = "selection-slider";
-
-	box.append(handle, type, content_, selection_slider);
-	main.append(box);
-
-	selection_slider.addEventListener("click", selectBox);
-	content_.addEventListener("click", () => {
-		showInfo(false);
-		// setDetails();
-	});
-
-	box.style.opacity = 0;
-	setTimeout(() => (box.style.opacity = 1), 10);
-};
-
-function addPasted() {
-	settings.selected === 0 ? addNode("test1", "internal content") : "";
-}
+	$("main").append(box);
+});
 
 function selectBox(event, isSource = false) {
 	const source = isSource

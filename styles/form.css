@@ -1,0 +1,47 @@
+button:active {
+	box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+		rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+	transform: scale(0.69);
+}
+
+.button {
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.button:hover {
+	background-color: #1b1212;
+	animation: jello-vertical 1s both;
+}
+button {
+	background-color: #353935;
+
+	outline: none;
+	height: 100%;
+	border-style: none;
+	color: darkorange;
+
+	transition: all 0.2s ease-in-out;
+
+	cursor: pointer;
+	text-shadow: 0 0 10px rgba(255, 109, 0, 0.7),
+		0 0 40px rgba(255, 109, 0, 0.7), 0 0 100px rgba(255, 109, 0, 0.7);
+}
+input[type="search"] {
+	color: dodgerblue;
+	background-color: #36454f;
+	outline: none;
+	border-style: none;
+	padding: 3px;
+
+	transition: all var(--time-limit) ease-in-out;
+}
+
+input[type="search"] ~ button {
+	background-color: #36454f;
+}
+
+input::selection {
+	background-color: dodgerblue;
+	color: black;
+	z-index: 2;
+	box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}

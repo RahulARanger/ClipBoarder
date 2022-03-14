@@ -1,0 +1,41 @@
+@import url("./box.css");
+@import url("./scrollbar.css");
+@import url("./overlay.css");
+@import url("./notification.css");
+
+main {
+	flex-flow: row wrap;
+	align-items: flex-start;
+	justify-content: space-around;
+	padding-top: 2%;
+}
+
+button {
+	width: 2rem;
+	font-size: 1.2rem;
+}
+footer,
+header {
+	position: sticky;
+	height: 2.3rem;
+	top: 0;
+	z-index: 2;
+}
+
+header > * {
+	display: flex;
+}
+
+footer,
+header {
+	justify-content: space-between;
+	padding-right: 5px;
+	box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+		rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+		rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+header > section:first-of-type {
+	flex-grow: 1;
+	align-items: center;
+}
